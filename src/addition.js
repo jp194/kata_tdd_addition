@@ -21,11 +21,15 @@ function add(str){
 
 
     
-    console.log(delimiter);
-
+    
     const nums = new_str.split(new RegExp(`${escapeRegExp(delimiter)}|\\r?\\n`)); // split by comma or semicolon
 
-    console.log(nums);
+    const negatives = nums.filter(n => n < 0);
+
+
+    if (negatives.length) {
+    throw new Error("Please provide valid input - negatives not allowed: " + negatives.join(", "));
+  }
     
     return nums.reduce((res, num) => {return res + Number(num)}, 0);
 }

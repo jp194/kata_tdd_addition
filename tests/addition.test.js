@@ -10,6 +10,9 @@ describe("tests for add function", () =>{
     })
 
     test("tests for custom delimiter", () =>{
-        expect(add("//;\n1;2")).toBe(3);})                  
+        expect(add("//;\n1;2")).toBe(3);})
+        
+        test("throws error for negative numbers", () =>{
+            expect(() => add("1,-2,3,-4")).toThrow("Please provide valid input - negatives not allowed: -2, -4");})   
 })
 
